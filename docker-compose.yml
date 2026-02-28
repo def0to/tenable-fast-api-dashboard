@@ -1,0 +1,50 @@
+services:
+  # The frontend container serves the React build via Nginx
+  # It also proxies /api/ requests to the backend container
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: scanman2-frontend
+    ports:
+      - "0.0.0.0:80:80"
+    depends_on:
+      tenable-proxy:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost/health || exit 1"]
+      interval: 30s
+      timeout: 5s
+      start_period: 15s
+      retries: 3
+    networks:
+      - scanman2-network
+
+  # The backend container runs the FastAPI proxy to Tenable SC
+  # It can run either 'main' (real proxy) or 'demo_backend' (mock)
+  tenable-proxy:
+    build:
+      context: ./fastapi-backend
+      dockerfile: Dockerfile
+    container_name: tenable-proxy
+    environment:
+      # Switch to 'demo_backend' for testing with 100+ record mocks
+      - BACKEND_MODULE=demo_backend
+      - PORT=8000
+    env_file:
+      - path: ./fastapi-backend/.env
+        required: false
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8000/health || exit 1"]
+      interval: 30s
+      timeout: 5s
+      start_period: 10s
+      retries: 3
+    networks:
+      - scanman2-network
+
+networks:
+  scanman2-network:
+    driver: bridge

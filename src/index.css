@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* --- Professional Base Themes --- */
+  :root, [data-theme="dark"], [data-theme="slate"] {
+    --background: 222 47% 4%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 7%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 6%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 4%;
+    --secondary: 222 47% 12%;
+    --secondary-foreground: 210 40% 90%;
+    --muted: 222 47% 10%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 91% 60%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 222 47% 14%;
+    --input: 222 47% 14%;
+    --ring: 217 91% 60%;
+    --radius: 0.75rem;
+    --success: 142 71% 45%;
+    --warning: 48 96% 53%;
+    --chart-1: 217 91% 60%;
+    --chart-2: 199 89% 48%;
+    --chart-3: 262 83% 58%;
+    --chart-4: 316 70% 50%;
+    --chart-5: 48 96% 53%;
+    --blend-1: hsla(217, 91%, 60%, 0.05);
+    --blend-2: hsla(262, 83%, 58%, 0.03);
+  }
+
+  [data-theme="light"] {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 4%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 4%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 4%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
+    --radius: 0.75rem;
+    --blend-1: rgba(0,0,0,0.02);
+    --blend-2: rgba(0,0,0,0.01);
+  }
+
+  [data-theme="midnight"] {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 95%;
+    --card: 0 0% 3%;
+    --primary: 0 0% 98%;
+    --border: 0 0% 12%;
+    --blend-1: rgba(255,255,255,0.03);
+    --blend-2: rgba(255,255,255,0.01);
+  }
+
+  [data-theme="glass"] {
+    --background: 246 27% 7%;
+    --foreground: 220 14% 90%;
+    --card: 246 22% 12%;
+    --primary: 252 56% 57%;
+    --border: 246 15% 20%;
+    --blend-1: hsla(252, 56%, 57%, 0.08);
+    --blend-2: hsla(210, 80%, 50%, 0.05);
+  }
+
+  [data-theme="cyberpunk"] {
+    --background: 260 60% 2%;
+    --foreground: 180 100% 90%;
+    --card: 260 60% 4%;
+    --primary: 290 100% 60%;
+    --accent: 190 100% 50%;
+    --border: 290 100% 20%;
+    --blend-1: hsla(290, 100%, 60%, 0.08);
+    --blend-2: hsla(190, 100%, 50%, 0.05);
+  }
+
+  [data-theme="royal-velvet"] {
+    --background: 325 60% 2%;
+    --foreground: 325 20% 96%;
+    --card: 325 60% 4%;
+    --primary: 325 72% 31%;
+    --border: 325 72% 20%;
+    --blend-1: rgba(138, 22, 91, 0.12);
+    --blend-2: rgba(158, 40, 109, 0.08);
+  }
+
+  /* --- Radix Scales --- */
+  [data-theme="radix-indigo"] {
+    --background: 226 50% 4%; --foreground: 226 20% 96%; --card: 226 50% 6%;
+    --primary: 226 100% 64%; --border: 226 30% 16%;
+    --blend-1: hsla(226, 100%, 64%, 0.08); --blend-2: hsla(280, 100%, 60%, 0.05);
+  }
+  [data-theme="radix-violet"] {
+    --background: 255 40% 4%; --foreground: 255 20% 96%; --card: 255 40% 6%;
+    --primary: 255 100% 68%; --border: 255 25% 16%;
+    --blend-1: hsla(255, 100%, 68%, 0.08); --blend-2: hsla(320, 100%, 65%, 0.05);
+  }
+  [data-theme="radix-crimson"] {
+    --background: 345 40% 4%; --foreground: 345 20% 96%; --card: 345 40% 6%;
+    --primary: 345 100% 60%; --border: 345 25% 16%;
+    --blend-1: hsla(345, 100%, 60%, 0.08); --blend-2: hsla(10, 100%, 60%, 0.05);
+  }
+  [data-theme="radix-jade"] {
+    --background: 160 40% 3%; --foreground: 160 20% 96%; --card: 160 40% 5%;
+    --primary: 160 100% 50%; --border: 160 25% 14%;
+    --blend-1: hsla(160, 100%, 50%, 0.06); --blend-2: hsla(190, 100%, 50%, 0.04);
+  }
+  [data-theme="radix-cyan"] {
+    --background: 200 40% 3%; --foreground: 200 20% 96%; --card: 200 40% 5%;
+    --primary: 190 100% 50%; --border: 200 25% 14%;
+    --blend-1: hsla(190, 100%, 50%, 0.06); --blend-2: hsla(210, 100%, 50%, 0.04);
+  }
+  [data-theme="radix-amber"] {
+    --background: 35 40% 3%; --foreground: 35 20% 96%; --card: 35 40% 5%;
+    --primary: 35 100% 60%; --border: 35 25% 14%;
+    --blend-1: hsla(35, 100%, 60%, 0.08); --blend-2: hsla(15, 100%, 50%, 0.05);
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: hsl(var(--background));
+    position: relative;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: ""; position: fixed; inset: -50%; z-index: -1;
+    background: 
+      radial-gradient(circle at 30% 30%, var(--blend-1, transparent) 0%, transparent 40%),
+      radial-gradient(circle at 70% 70%, var(--blend-2, transparent) 0%, transparent 40%);
+    filter: blur(80px); animation: background-drift 20s infinite alternate ease-in-out; pointer-events: none;
+  }
+  @keyframes background-drift {
+    0% { transform: rotate(0deg) scale(1); }
+    100% { transform: rotate(10deg) scale(1.1); }
+  }
+  .bg-card {
+    background-color: hsla(var(--card) / 0.85);
+    border: 1px solid hsla(var(--border) / 0.4);
+    box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.2);
+  }
+  code, .font-mono { font-family: 'JetBrains Mono', monospace; }
+}
+
+/* --- Optimized PDF / Print Styles --- */
+@media print {
+  @page { margin: 1cm; }
+  
+  /* Force clean white/black style regardless of active theme */
+  html, body {
+    background: white !important;
+    color: black !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  :root {
+    --background: 0 0% 100% !important;
+    --foreground: 0 0% 0% !important;
+    --card: 0 0% 100% !important;
+    --border: 0 0% 85% !important;
+    --muted: 0 0% 95% !important;
+    --muted-foreground: 0 0% 30% !important;
+    --secondary: 0 0% 96% !important;
+  }
+
+  /* Hide ALL UI elements */
+  header, nav, footer, button, .drag-handle, 
+  [class*="DashboardFilterBar"], 
+  [class*="AddWidgetPanel"],
+  .lucide-settings, .lucide-trash-2, .lucide-palette {
+    display: none !important;
+  }
+
+  /* Fix text readability in cards */
+  .bg-card {
+    background: white !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+    border: 1px solid #eee !important;
+    color: black !important;
+  }
+
+  .text-foreground, .text-card-foreground, span, p, h1, h2, h3 {
+    color: black !important;
+  }
+
+  .text-muted-foreground {
+    color: #666 !important;
+  }
+
+  /* Ensure grid items don't break mid-page */
+  .react-grid-item {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    opacity: 1 !important;
+  }
+
+  .print-only-header {
+    display: block !important;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #000;
+  }
+}
+
+.print-only-header { display: none; }

@@ -1,0 +1,16 @@
+# SSL deployment. Provide certs in ./certs/ (fullchain.pem, privkey.pem)
+# Generate self-signed: mkdir -p certs && openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+#   -keyout certs/privkey.pem -out certs/fullchain.pem -subj "/CN=localhost"
+#
+# Run: docker compose -f docker-compose.yml -f docker-compose.ssl.yml up -d
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.ssl
+    ports:
+      - "443:443"
+      - "80:80"
+    volumes:
+      - ./certs:/etc/nginx/certs:ro
